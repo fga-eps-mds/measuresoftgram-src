@@ -35,13 +35,13 @@ jobs:
           sed -i 's/<source>\/home\/runner\/work\/2023-1-MeasureSoftGram-Core\/2023-1-MeasureSoftGram-Core<\/source>/<source>\/github\/workspace<\/source>/g' coverage.xml
 
       - name: Scanner do SonarCloud
-        uses: SonarSource/sonarcloud-github-action@v1.8
+        uses: SonarSource/sonarcloud-github-action@v2.3.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
       - name: Envia cobertura para o Codecov
-        uses: codecov/codecov-action@v3
+        uses: codecov/codecov-action@v4.01
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           directory: ./
